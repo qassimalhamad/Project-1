@@ -5,6 +5,11 @@ let drivers = ['Verstappen' , 'Hamilton' , 'Alonso'
     ,  'Gazly', 'Ocon' , 'Perez' ]
 
 let randomDriverIndex;
+let randomDriverName =[];
+let arrayWithOutComma=[];
+let found = true;
+
+let count = 0;
 
 
 /*---------- Variables (state) ---------*/
@@ -20,12 +25,24 @@ const display = document.querySelector('.display')
 
 const getRandomDriver = ()=>{
     randomDriverIndex = Math.floor(Math.random() * drivers.length)
-    const randomDriverName = drivers[randomDriverIndex];//used to have split
-    const arrayOfUnderScores = new Array(randomDriverName.length).fill('_')
-    const arrayWithOutComma = arrayOfUnderScores.join(' ');
-    display.innerHTML = arrayWithOutComma;
+    randomDriverName = drivers[randomDriverIndex].split('');
+    arrayOfUnderScores = new Array(randomDriverName.length).fill('_')
+    const arrayWithSpaces = arrayOfUnderScores.join(' ');
+    display.innerHTML = arrayWithSpaces;
     return randomDriverName;
 }
+
+const spotLetterGuessed = (letterGuessed) =>{
+    for(i = 0; i < randomDriverName.length; i++){
+        if(randomDriverName[i].toLowerCase() === letterGuessed.toLowerCase()){
+            arrayOfUnderScores[i] = letterGuessed;
+        }
+    }
+
+    const arrayWithSpaces = arrayOfUnderScores.join(' ');
+    display.innerHTML = arrayWithSpaces;
+}
+
 
 
 
@@ -36,8 +53,9 @@ console.log(getRandomDriver())
 letters.forEach( letter => {
     letter.addEventListener('click' , (event)=>{
         const letterGuessed = event.target.innerHTML;
-        console.log(letter.innerHTML)
+        console.log(letterGuessed)
         letter.disabled = true;
+        spotLetterGuessed(letterGuessed);
      } )
 })
 

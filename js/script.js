@@ -1,12 +1,12 @@
 /*-------------- Constants -------------*/
 
-let drivers = ['Verstappen' , 'Hamilton' , 'Alonso' 
-    , 'Vettel' , 'NORRIS' , 'Leclerc' , 'Sainz' ,
-    ,  'GAZLY', 'OCON' , 'PEREZ' ]
+let drivers = ['VERSTAPPEN' , 'HAMILTON' , 'ALONSO' , 'VETTEL' , 'NORRIS' ,'LECLERC' , 'SAINZ','GAZLY','OCON' ,'PEREZ', 'HULKENBURG' , 'RUSSEL', 'BOTTAS', 'WEBBER', 'HILL' , 'RICCIARDO'
+    ,'RAIKKONEN']
 
 let randomDriverIndex;
 let randomDriverName =[];
 let arrayWithOutComma=[];
+let arrayOfUnderScores= [];
 let count = 0;
 let maxCount = 6;
 
@@ -20,9 +20,26 @@ const letters = document.querySelectorAll('.letter-button')
 const display = document.querySelector('.display')
 const chances = document.querySelector('.chances')
 const gameStatus = document.querySelector('.game-status')
+const restart = document.querySelector('.restart')
 
 
 /*-------------- Functions -------------*/
+
+const restartGame = ()=>{
+    count = 0;
+    letters.forEach(letter =>{
+        letter.disabled =false ;
+    })
+    
+    arrayOfUnderScores =[];
+    randomDriverName = [];
+    arrayWithOutComma=[];
+    getRandomDriver();
+    chances.innerHTML = `You have ${count} / ${maxCount} chances left`;
+    gameStatus.innerHTML = `You have ${count}/${maxCount} left`
+
+
+}
 
 const getRandomDriver = ()=>{
     randomDriverIndex = Math.floor(Math.random() * drivers.length)
@@ -36,7 +53,7 @@ const getRandomDriver = ()=>{
 const spotLetterGuessed = (letterGuessed) =>{
     let found = false;
     for(i = 0; i < randomDriverName.length; i++){
-        if(randomDriverName[i].toLowerCase() === letterGuessed.toLowerCase()){
+        if(randomDriverName[i] === letterGuessed){
             arrayOfUnderScores[i] = letterGuessed;
             found = true;
         }
@@ -51,17 +68,26 @@ const spotLetterGuessed = (letterGuessed) =>{
     display.innerHTML = arrayWithSpaces;
 }
 
+const winner = ()=>{
+  return arrayOfUnderScores.join('') === randomDriverName.join('');
+}
+
+
+
+
 const checkWinner = ()=>{
-      if(count < maxCount){
+      if(winner()){
+        gameStatus.innerHTML = `Congratulations you've WON`
+        letters.forEach( letter =>{
+            letter.disabled = true; 
+        })
+    }else if(count < maxCount){
         gameStatus.innerHTML = `You have ${count}/${maxCount} left`
-    }else if(count === maxCount){
-        gameStatus.innerHTML = `You have lost the game`
-    }else if(randomDriverName === arrayOfUnderScores && count < maxCount){
-        gameStatus.innerHTML = `Congrats You've wonn`
+    }else{
+        gameStatus.innerHTML = `LOST`
     }
 }
 
- 
 console.log(getRandomDriver())
 
 /*----------- Event Listeners ----------*/
@@ -73,7 +99,8 @@ letters.forEach( letter => {
         letter.disabled = true;
         spotLetterGuessed(letterGuessed);
         checkWinner();
+
      } )
 })
 
-
+restart.addEventListener('click' , restartGame )

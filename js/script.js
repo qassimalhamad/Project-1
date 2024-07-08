@@ -3,12 +3,13 @@
 let drivers = ['VERSTAPPEN' , 'HAMILTON' , 'ALONSO' , 'VETTEL' , 'NORRIS' ,'LECLERC' , 'SAINZ','GAZLY','OCON' ,'PEREZ', 'HULKENBURG' , 'RUSSEL', 'BOTTAS', 'WEBBER', 'HILL' , 'RICCIARDO'
     ,'RAIKKONEN']
 
+
 let randomDriverIndex;
 let randomDriverName =[];
 let arrayWithOutComma=[];
 let arrayOfUnderScores= [];
 let count = 0;
-let maxCount = 6;
+let maxCount = 5;
 
 
 /*---------- Variables (state) ---------*/
@@ -21,6 +22,7 @@ const display = document.querySelector('.display')
 const chances = document.querySelector('.chances')
 const gameStatus = document.querySelector('.game-status')
 const restart = document.querySelector('.restart')
+const images = document.querySelector('.images')
 
 
 /*-------------- Functions -------------*/
@@ -35,8 +37,10 @@ const restartGame = ()=>{
     randomDriverName = [];
     arrayWithOutComma=[];
     getRandomDriver();
-    chances.innerHTML = `You have ${count} / ${maxCount} chances left`;
-    gameStatus.innerHTML = `You have ${count}/${maxCount} left`
+    chances.innerHTML = `You have ${maxCount-count} chances left`;
+    gameStatus.innerHTML = `You have ${maxCount-count} chances left`
+    images.src = `images/projectImage-${count}.jpeg`;
+
 
 
 }
@@ -57,10 +61,10 @@ const spotLetterGuessed = (letterGuessed) =>{
             arrayOfUnderScores[i] = letterGuessed;
             found = true;
         }
-    }
-    if(!found){
+    }if(!found){
         count++
-        chances.innerHTML = `You have ${count} / ${maxCount} chances left`;
+        chances.innerHTML = `You have ${maxCount-count} chances left`;
+        images.src = `images/projectImage-${count}.jpeg`;
 
     }
     console.log(count)
@@ -82,7 +86,7 @@ const checkWinner = ()=>{
             letter.disabled = true; 
         })
     }else if(count < maxCount){
-        gameStatus.innerHTML = `You have ${count}/${maxCount} left`
+        gameStatus.innerHTML = `You have ${maxCount-count} chances left`
     }else{
         gameStatus.innerHTML = `LOST`
     }

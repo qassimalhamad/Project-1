@@ -2,10 +2,20 @@
 
 let drivers = ['VERSTAPPEN' , 'HAMILTON' , 'ALONSO' , 'VETTEL' , 'NORRIS' ,'LECLERC' , 'SAINZ','GAZLY','OCON' ,'PEREZ', 'HULKENBURG' , 'RUSSEL', 'BOTTAS', 'WEBBER', 'HILL' , 'RICCIARDO'
     ,'RAIKKONEN']
+let circuits = [
+        "ALBERTPARK","MONZA","BAHRAIN","HUNGARORING","BARCELONA-CATALUNYA","MONACO",
+        "GILLESVILLENEUVE","PAULRICARD","ZANDVOORT","IMOLA","ISTANBULPARK","JEDDAH",
+        "MARINABAY","MIAMI", "REDBULLRING","SAKHIR","SEPANG","SHANGHAI","SILVERSTONE",
+        "SOCHI","SPA","SUZUKA","CIRCUITOFTHEAMERICAS","YASMARINA","HERMANOSRODRIGUEZ",
+        "BAKU","MELBOURNE","NURBURGRING","PORTIMAO", "VLADIVOSTOK" ];
+
+let teams = ['MERCEDES', 'FERRARI', 'REDBULL', 'MCLAREN', 'ASTONMARTIN', 'ALPINE', 'ALPHATAURI', 'HAAS', 'WILLIAMS', 'ALFA_ROMEO'];
 
 
-let randomDriverIndex;
-let randomDriverName =[];
+
+let randomWordIndex;
+let categorieChosen =[];
+let randomWord =[];
 let arrayWithOutComma=[];
 let arrayOfUnderScores= [];
 let count = 0;
@@ -23,6 +33,7 @@ const chances = document.querySelector('.chances')
 const gameStatus = document.querySelector('.game-status')
 const restart = document.querySelector('.restart')
 const images = document.querySelector('.images')
+const categories = document.querySelectorAll('.categories-buttons')
 
 
 /*-------------- Functions -------------*/
@@ -34,9 +45,9 @@ const restartGame = ()=>{
     })
     
     arrayOfUnderScores =[];
-    randomDriverName = [];
+    randomWord = [];
+    getRandomWord();
     arrayWithOutComma=[];
-    getRandomDriver();
     chances.innerHTML = `You have ${maxCount-count} chances left`;
     gameStatus.innerHTML = `You have ${maxCount-count} chances left`
     images.src = `images/projectImage-${count}.jpeg`;
@@ -45,19 +56,24 @@ const restartGame = ()=>{
 
 }
 
-const getRandomDriver = ()=>{
-    randomDriverIndex = Math.floor(Math.random() * drivers.length)
-    randomDriverName = drivers[randomDriverIndex].split('');
-    arrayOfUnderScores = new Array(randomDriverName.length).fill('_')
+const getRandomWord = ()=>{
+    if (categorieChosen.length === 0) {
+        console.log('CategorieChosen is empty. Please select a category.');
+        return;
+    }
+    randomWordIndex = Math.floor(Math.random() * categorieChosen.length)
+    randomWord = categorieChosen[randomWordIndex].split('');
+    arrayOfUnderScores = new Array(randomWord.length).fill('_')
     const arrayWithSpaces = arrayOfUnderScores.join(' ');
     display.innerHTML = arrayWithSpaces;
-    return randomDriverName;
+    chances.innerHTML = `You have ${maxCount-count} chances left`;
+    return randomWord;
 }
 
 const spotLetterGuessed = (letterGuessed) =>{
     let found = false;
-    for(i = 0; i < randomDriverName.length; i++){
-        if(randomDriverName[i] === letterGuessed){
+    for(i = 0; i < randomWord.length; i++){
+        if(randomWord[i] === letterGuessed){
             arrayOfUnderScores[i] = letterGuessed;
             found = true;
         }
@@ -73,7 +89,7 @@ const spotLetterGuessed = (letterGuessed) =>{
 }
 
 const winner = ()=>{
-  return arrayOfUnderScores.join('') === randomDriverName.join('');
+  return arrayOfUnderScores.join('') === randomWord.join('');
 }
 
 
@@ -92,7 +108,7 @@ const checkWinner = ()=>{
     }
 }
 
-console.log(getRandomDriver())
+console.log(getRandomWord())
 
 /*----------- Event Listeners ----------*/
 
@@ -108,3 +124,20 @@ letters.forEach( letter => {
 })
 
 restart.addEventListener('click' , restartGame )
+
+
+categories.forEach(categorie =>{
+    categorie.addEventListener('click', (event) =>{
+        const selectedCategory = event.target.innerHTML;
+        if (selectedCategory === 'drivers') {
+            categorieChosen = drivers;
+        } else if (selectedCategory === 'circuits') {
+            categorieChosen = circuits;
+        } else if (selectedCategory === 'teams') {
+            categorieChosen = teams;
+        }
+        getRandomWord();
+
+    })
+})
+

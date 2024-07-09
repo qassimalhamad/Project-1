@@ -20,18 +20,6 @@ h1 {
     font-weight: 100;
     position: relative;
   }
-  h1::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -50px;
-    width: 800px;
-    margin-left: -300px;
-    margin-top: -220px;
-    height: 600px;
-
-    z-index: -1;
-  }
 
 
 .letters {
@@ -68,7 +56,7 @@ h1 {
     justify-content: center;
     align-items: baseline;
     font-size: 3.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: white;
 }
 
@@ -92,13 +80,6 @@ h1 {
 }
 
 
-
-.images{
-    padding-top: 20px; 
-    height: 200px;
-    width: 200px;
-}
-
 .game-status{
     color:white;
     font-size: 1.3rem;
@@ -106,7 +87,7 @@ h1 {
 
 .categories-buttons{
     display: inline;
-    margin-top: 20px;
+    margin-top: 15px;
     border-radius: 80px;
     width: 90px;
     height: 45px;
@@ -114,7 +95,24 @@ h1 {
     color: rgb(0, 0, 0);
 }
 
-img{
-    border: 20px bold 
+
+.images {
+        padding-top: 15px;
+        height: 250px; 
+        width: 250px;
+        border-radius: 50%; 
 }
 
+.f1 {
+    position: absolute;
+    top: 20px; 
+    left: 20px; 
+    height: 50px; 
+    width: 50px; 
+}
+
+footer{
+    display: flex;
+    padding-top: 88px;
+    padding-bottom: 0px;
+}

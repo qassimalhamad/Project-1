@@ -123,9 +123,6 @@ letters.forEach( letter => {
      } )
 })
 
-restart.addEventListener('click' , restartGame )
-
-
 categories.forEach(categorie =>{
     categorie.addEventListener('click', (event) =>{
         const selectedCategory = event.target.innerHTML;
@@ -141,3 +138,5 @@ categories.forEach(categorie =>{
     })
 })
 
+
+restart.addEventListener('click' , restartGame )

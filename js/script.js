@@ -38,6 +38,7 @@ const gameStatus = document.querySelector('.game-status')
 const restart = document.querySelector('.restart')
 const images = document.querySelector('.images')
 const categories = document.querySelectorAll('.categories-buttons')
+const cato = document.querySelector('.cato')
 
 
 /*-------------- Functions -------------*/
@@ -145,11 +146,13 @@ categories.forEach(categorie =>{
         } else if (selectedCategory === 'teams') {
             categorieChosen = teams;
         }
+        cato.innerHTML = `,  Current Catogory: ${selectedCategory}`;
         disableLetterButtons(false);
         getRandomWord();
         startAudio.play();
 
     })
+    
 })
 
 disableLetterButtons(true);

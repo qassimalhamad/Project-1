@@ -122,51 +122,101 @@ h1 {
     color: white;
 }
 
-@media only screen and (max-width: 600px) {
-    .letters {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 3px;
-        justify-content: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        width: 50vw;
-    }
-    
-    .letter-button {
-        display: flex;
-        width: 25px;
-        height: 20px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 80px;
-    
-    }
-
+@media only screen and (min-width: 390px) {
     h1 { 
         text-align: center;
         color: white;
         text-transform: uppercase;
         padding: 1px;
-        font-family: 'Raleway';
-        font-weight: 60;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 100;
+        font-size: 1.6rem;
         position: relative;
-        font-size: 27px;
-      }
-      .categories-buttons{
-        display: inline;
-        margin-top: 15px;
-        border-radius: 80px;
-        width: 70px;
-        height: 50px;
-        background-color: #fafafa;
-        color: rgb(0, 0, 0);
     }
+
+    .letters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 75vw;
+        margin: 0 auto; 
+        box-sizing: border-box; 
+    }
+
+    .letter-button {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%; 
+    }
+    .letter-button:hover{
+        width: 37px;
+        height: 37px;
+        transition: 0.5s;
+    }
+
     .images {
         padding-top: 15px;
-        height: 150px; 
-        width: 150px;
+        height: 200px; 
+        width: 200px;
         border-radius: 50%; 
 }
- 
-  }
+.categories-buttons{
+    display: inline;
+    margin-top: 15px;
+    border-radius: 80px;
+    width: 70px;
+    height: 35px;
+    background-color: #fafafa;
+    color: rgb(0, 0, 0);
+    margin-bottom: 5px;
+}
+
+.categories-buttons:hover{
+    width: 73px;
+    height: 38px;
+    transition: 0.5s;
+}
+
+.restart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius: 80px;
+    width: 75px;
+    height: 35px;
+    background-color: #fafafa;
+    color: rgb(0, 0, 0);
+}
+
+.restart:hover{
+    width: 78px;
+    height: 38px;
+    transition: 0.5s;
+}
+
+
+.game-status{
+    color:white;
+    font-size: 1rem;
+}
+.CategorySelectingMessage{
+    font-size: 1rem;
+    color: white;
+}
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    color: white;
+}
+}

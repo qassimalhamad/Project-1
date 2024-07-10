@@ -93,6 +93,8 @@ Audio Website: [Audio](https://pixabay.com/sound-effects/search/car-crash/)
 
 Markdown Cheat-Sheet: [Mark-Down](https://www.markdownguide.org/cheat-sheet/): 
 
+Gradient generator: [Gradient](https://cssgradient.io/)
+
 
 
 

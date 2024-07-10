@@ -5,7 +5,7 @@
 
 ### Planing Material
 
-[PlaningREADME.md]()
+[PlaningREADME.md](https://github.com/qassimalhamad/RaceToVictory/blob/main/planingREADME.md)
 
 
 ## How to Play?
@@ -85,3 +85,5 @@ images.src = `images/projectImage-${count}.jpeg`;
 	
 [Audio](https://pixabay.com/sound-effects/search/car-crash/): Link to the website I took audio from
 
+## Next Step
+Next Step could include adding more features to the website such as **having image for each driver,circuit and teams and link them after the player wins**, having a better **CSS** and we may use **keyDown** rather clicking on the butttons created

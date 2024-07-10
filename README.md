@@ -1,40 +1,15 @@
 # ***Race To Victory*** 
+## Date: 10/7/2024
+### By: Qasim Alhamad
 
-## ***Game Intro***
+
+
+[PlaningREADME.md](https://github.com/qassimalhamad/RaceToVictory/blob/main/planingREADME.md) | [GitHub](https://github.com/qassimalhamad/RaceToVictory) | [Game](https://qassimalhamad.github.io/RaceToVictory/)
+
+## Description
 **Game designed for **F1** fans to test their knowledge in three different catogories Drivers, Circuits and Teams, it's similar to hangman game "F1 Version"**
 
-### Planing Material
-
-[PlaningREADME.md](https://github.com/qassimalhamad/RaceToVictory/blob/main/planingREADME.md)
-
-
-## How to Play?
-Question will be answered in steps 
-
-1. Choose the **category** you'd like to test your knowledge in.
-
-	![alt text](./images/projectpic1.jpg)
-
-2. Spaces will be displayed based on the category you seleceted. as shown bellow.
-
-	![alt text](./images/projectpic2.jpg)
-
-3. **Guess** the word, the word has the same letters amount as the spaces.
-
-4. You have **5 chances** to guess the word, Try it by clicking on the letters buttons on the screen. if the letter you clicked is wrong you'll lose one of your chances!
-
-	![alt text](./images/projectpic3.jpg)
-
-
-
-5. Each time you clicked a wrong letter the image will change until you destory the f1 car!
-
-	![alt text](./images/projectpic4.jpg)
-
-6. Click on the restart button to reset the game on the same catogory! if you want to change catogory you can by clicking on one of the categories and restarting the game.
-
-
-## Technical Part and Technologies used
+## Technologies used & Technical
 * **JavaScript** 
 
 ```
@@ -79,11 +54,47 @@ images.src = `images/projectImage-${count}.jpeg`;
         position: relative;
     }
 ```
+## How to Play?
+Question will be answered in steps 
 
-## **Attribution**
-[Images](https://gemini.google.com/): Link to the website I took images from
+1. Choose the **category** you'd like to test your knowledge in.
+
+	![alt text](./images/projectpic1.jpg)
+
+2. Spaces will be displayed based on the category you seleceted. as shown bellow.
+
+	![alt text](./images/projectpic2.jpg)
+
+3. **Guess** the word, the word has the same letters amount as the spaces.
+
+4. You have **5 chances** to guess the word, Try it by clicking on the letters buttons on the screen. if the letter you clicked is wrong you'll lose one of your chances!
+
+	![alt text](./images/projectpic3.jpg)
+
+
+
+5. Each time you clicked a wrong letter the image will change until you destory the f1 car!
+
+	![alt text](./images/projectpic4.jpg)
+
+6. Click on the restart button to reset the game on the same catogory! if you want to change catogory you can by clicking on one of the categories and restarting the game.
+
+## Future Updates
+- [X] Picture for each driver
+- [X] Leaderboard
+- [ ] CSS Upgrade
+- [ ] Categories
+
+
+## **Credits**
+Images Website: [Images](https://gemini.google.com/)
 	
-[Audio](https://pixabay.com/sound-effects/search/car-crash/): Link to the website I took audio from
+Audio Website: [Audio](https://pixabay.com/sound-effects/search/car-crash/)
 
-## Next Step
-Next Step could include adding more features to the website such as **having image for each driver,circuit and teams and link them after the player wins**, having a better **CSS** and we may use **keyDown** rather clicking on the butttons created
+Markdown Cheat-Sheet: [Mark-Down](https://www.markdownguide.org/cheat-sheet/): 
+
+
+
+
+
+

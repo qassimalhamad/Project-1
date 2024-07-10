@@ -25,6 +25,7 @@ let startAudio = new Audio('./audio/startAudio.mp3')
 let crashAudio = new Audio('/audio/crashAudio.mp3')
 
 
+
 /*---------- Variables (state) ---------*/
 
 
@@ -43,6 +44,7 @@ const categories = document.querySelectorAll('.categories-buttons')
 
 const restartGame = ()=>{
     count = 0;
+    disableLetterButtons(false);
     letters.forEach(letter =>{
         letter.disabled =false ;
     })
@@ -102,6 +104,7 @@ const winner = ()=>{
 const checkWinner = ()=>{
       if(winner()){
         gameStatus.innerHTML = `Congratulations you've WON`
+        disableLetterButtons(true);
         letters.forEach( letter =>{
             letter.disabled = true; 
         })
@@ -110,6 +113,12 @@ const checkWinner = ()=>{
     }else{
         gameStatus.innerHTML = `LOST`
     }
+}
+
+const disableLetterButtons = (disable) => {
+    letters.forEach(letter => {
+        letter.disabled = disable;
+    });
 }
 
 
@@ -136,11 +145,13 @@ categories.forEach(categorie =>{
         } else if (selectedCategory === 'teams') {
             categorieChosen = teams;
         }
+        disableLetterButtons(false);
         getRandomWord();
         startAudio.play();
 
     })
 })
 
+disableLetterButtons(true);
 
 restart.addEventListener('click' , restartGame )

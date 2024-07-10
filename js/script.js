@@ -88,7 +88,6 @@ const spotLetterGuessed = (letterGuessed) =>{
         
 
     }
-    console.log(count)
     const arrayWithSpaces = arrayOfUnderScores.join(' ');
     display.innerHTML = arrayWithSpaces;
 }
@@ -113,14 +112,12 @@ const checkWinner = ()=>{
     }
 }
 
-console.log(getRandomWord())
 
 /*----------- Event Listeners ----------*/
 
 letters.forEach( letter => {
     letter.addEventListener('click' , (event)=>{
         const letterGuessed = event.target.innerHTML;
-        console.log(letterGuessed)
         letter.disabled = true;
         spotLetterGuessed(letterGuessed);
         checkWinner();

@@ -1,7 +1,12 @@
 # ***Race To Victory*** 
 
 ## ***Game Intro***
-**Game designed for **F1** fans to test their knowledge in three different catogories Drivers, Circuits and Teams, it's similar to hangman game "F1 Version"*
+**Game designed for **F1** fans to test their knowledge in three different catogories Drivers, Circuits and Teams, it's similar to hangman game "F1 Version"**
+
+### Planing Material
+
+[PlaningREADME.md]()
+
 
 ## How to Play?
 Question will be answered in steps 
@@ -29,59 +34,54 @@ Question will be answered in steps
 6. Click on the restart button to reset the game on the same catogory! if you want to change catogory you can by clicking on one of the categories and restarting the game.
 
 
-## Technical Part
+## Technical Part and Technologies used
+* **JavaScript** 
 
+```
+const spotLetterGuessed = (letterGuessed) =>{
+let found = false;
+for(i = 0; i < randomWord.length; i++){
+if(randomWord[i] === letterGuessed){
+    arrayOfUnderScores[i] = letterGuessed;
+    found = true;
+    f1Audio.play()
+    }
+    }if(!found){
+        count++
+        crashAudio.play()
+        chances.innerHTML = `You have ${maxCount-count} chances left`;
+images.src = `images/projectImage-${count}.jpeg`;
+    }
+```
+* **HTML**
+``` 
+<a href="https://www.formula1.com/">
+<img class="f1" src="./images/f1.png"  alt="">
+</a>
+<div class="categories">
+<button class="categories-buttons">drivers</button>
+<button class="categories-buttons">circuits</button>
+<button class="categories-buttons">teams</button>
+</div>
+```
+* **CSS**
+```
 
+@media only screen and (min-width: 390px) and (max-width:500px) {
+    h1 { 
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        padding: 1px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 100;
+        font-size: 1.6rem;
+        position: relative;
+    }
+```
 
-
-
-
-
-
-
-
-
-
-<!-- ## USER STORY:
-
-* As a user, I want to see the name of the game as a heading.
-* As a user, I want the number of attempts left to be displayed on the screen.
-* As a user, I want to see the letters I’ve chosen before.
-* As a user, I want to see if I won or lost.
-* As a user, I want a restart button to restart the game. -->
-
-<!-- 
-## PSEUDOCODE: 
-
-1. The computer chooses a random word from the data and displays lines based on the length of the word.
-2. Hangman images will appear on the left side, each wrong letter chosen will result in losing one chance, and the image will change.
-3. The user has 6 chances to guess the word, or they will be hanged. -->
-
-<!-- ## Plan:
-
-	<!-- Create GitHub repo with files -->
-
-
-<!-- ### HTML:
-* Heading: Heading of the Game, "Hangman”.
-		Alphabet Buttons: Buttons for each letter from a-z.
-* Restart Button: Button for restarting the game.
-
-* chances Display: A paragraph element to keep the remaining chances used and chances left.
-
-* Hangman Image: Image selection for Hangman images and changes depending on chances remaining.
+## **Attribution**
+[Images](https://gemini.google.com/): Link to the website I took images from
 	
-	
-	
-	
-	
-	
-### JavaScript:
+[Audio](https://pixabay.com/sound-effects/search/car-crash/): Link to the website I took audio from
 
-* Store Words in an array
-* Random word picker 
-* Initialization
-* EventListener for the Guesses and restart button
-* Functions for guessing, checking if matching letters are available and replace them and if not decrease the chances left 
-* Update display for the words correctly guessed and the chances remaining 
-* Check winning, if the empty array matches the word that's been picked randomly and the count of chances are still not max you win, if the cout of chancesLeft are maximum "6" you lost the game. --> -->

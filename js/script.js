@@ -20,6 +20,9 @@ let arrayWithOutComma=[];
 let arrayOfUnderScores= [];
 let count = 0;
 let maxCount = 5;
+let f1Audio = new Audio('./audio/f1Monza.mp3')
+let startAudio = new Audio('./audio/startAudio.mp3')
+let crashAudio = new Audio('/audio/crashAudio.mp3')
 
 
 /*---------- Variables (state) ---------*/
@@ -58,7 +61,6 @@ const restartGame = ()=>{
 
 const getRandomWord = ()=>{
     if (categorieChosen.length === 0) {
-        console.log('CategorieChosen is empty. Please select a category.');
         return;
     }
     randomWordIndex = Math.floor(Math.random() * categorieChosen.length)
@@ -76,11 +78,14 @@ const spotLetterGuessed = (letterGuessed) =>{
         if(randomWord[i] === letterGuessed){
             arrayOfUnderScores[i] = letterGuessed;
             found = true;
+            f1Audio.play()
         }
     }if(!found){
         count++
+        crashAudio.play()
         chances.innerHTML = `You have ${maxCount-count} chances left`;
         images.src = `images/projectImage-${count}.jpeg`;
+        
 
     }
     console.log(count)
@@ -119,6 +124,7 @@ letters.forEach( letter => {
         letter.disabled = true;
         spotLetterGuessed(letterGuessed);
         checkWinner();
+        
 
      } )
 })
@@ -134,6 +140,7 @@ categories.forEach(categorie =>{
             categorieChosen = teams;
         }
         getRandomWord();
+        startAudio.play();
 
     })
 })

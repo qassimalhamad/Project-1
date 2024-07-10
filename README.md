@@ -7,7 +7,7 @@
 [PlaningREADME.md](https://github.com/qassimalhamad/RaceToVictory/blob/main/planingREADME.md) | [GitHub](https://github.com/qassimalhamad/RaceToVictory) | [Game](https://qassimalhamad.github.io/RaceToVictory/)
 
 ## Description
-**Game designed for **F1** fans to test their knowledge in three different catogories Drivers, Circuits and Teams, it's similar to hangman game "F1 Version"**
+**Game designed for **F1** fans to test their knowledge in three different categories Drivers, Circuits and Teams, it's similar to hangman game "F1 Version"**
 
 ## Technologies used & Technical
 * **JavaScript** 

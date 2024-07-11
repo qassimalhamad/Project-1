@@ -22,7 +22,7 @@ let count = 0;
 let maxCount = 5;
 let f1Audio = new Audio('./audio/f1Monza.mp3')
 let startAudio = new Audio('./audio/startAudio.mp3')
-let crashAudio = new Audio('/audio/crashAudio.mp3')
+let crashAudio = new Audio('./audio/crashAudio.mp3')
 
 
 
